@@ -11,8 +11,10 @@ const app = express()
 
 // middleware to handle CORS
 app.use(cors({
-  origin: 'http://localhost:3000', // Allow requests from React frontend
-}))
+  origin: ['http://localhost:3000', 'https://c219-mern-auth-frontend.onrender.com'], // Allow both local and production
+  methods: ['GET', 'POST', 'DELETE'], // Specify allowed methods
+  credentials: true  // Allow cookies if needed (e.g., for authentication)
+}));
 
 // middleware to parse JSON
 app.use(express.json())
